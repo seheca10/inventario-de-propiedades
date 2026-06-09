@@ -60,6 +60,12 @@ class User extends Authenticatable
 
     public function adminlte_desc()
     {
-        return implode(User::getRoleNames()->toArray());
+        /* return implode(User::getRoleNames()->toArray()); */
+        return implode(', ', $this->getRoleNames()->toArray());
+    }
+
+    public function contractor()
+    {
+        return $this->hasOne(Contractor::class, 'user_id');
     }
 }

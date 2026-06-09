@@ -59,6 +59,9 @@
                     @case('Asistente administrativa')
                       <span class="badge badge-warning">Asistente administrativa</span>
                       @break
+                    @case('Contratista')
+                      <span class="badge badge-info">Contratista</span>
+                      @break
                      @default
                       <span class="badge badge-secondary">Otro rol</span>
                       @break

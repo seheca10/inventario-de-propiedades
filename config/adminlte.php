@@ -307,14 +307,25 @@ return [
 
         // Sidebar items:
         [
-            'text' => 'Home',
-            'url' => '/',
+            'text' => 'Mis trabajos',
+            'url' => '/contractors-admin',
             'icon' => 'fas fa-home',
+            'can' => 'contractor.dashboard',
         ],
-        ['header' => 'ADMINISTRACIÓN'],
+        [
+            'text' => 'Home',
+            'url' => '/dashboard',
+            'icon' => 'fas fa-home',
+            'can' => 'inventarios.list',
+        ],
+        [
+            'header' => 'ADMINISTRACIÓN',
+            'can' => 'inventories.list',
+        ],
         [
             'text' => 'Inventarios',
             'icon' => 'fas fa-file-alt',
+            'can' => 'inventories.list',
             'submenu' => [
                 [
                     'text' => 'Todos',
@@ -334,11 +345,16 @@ return [
             'text' => 'Condominios',
             'url' => 'condominios',
             'icon' => 'fas fa-building',
+            'can' => 'condominios.list',
         ],
-        ['header' => 'AJUSTES'],
+        [
+            'header' => 'AJUSTES',
+            'can' => 'users.list',
+        ],
         [
             'text' => 'Adminsitración usuarios',
             'icon' => 'fas fa-users',
+            'can' => 'users.list',
             'submenu' => [
                 [
                     'text' => 'Usuarios',

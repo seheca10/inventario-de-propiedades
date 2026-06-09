@@ -18,6 +18,7 @@ class RoleSeeder extends Seeder
         $admin = Role::create(['name' => 'Administrador']);
         $agente = Role::create(['name' => 'Agente Inmobiliario']);
         $asistente = Role::create(['name' => 'Asistente administrativa']);
+        $contratista = Role::create(['name' => 'Contratista']);
 
         Permission::create(['name' => 'panel.admin'])->syncRoles([$admin]);
 
@@ -36,5 +37,12 @@ class RoleSeeder extends Seeder
         Permission::create(['name' => 'roles.create'])->assignRole($admin);
         Permission::create(['name' => 'roles.show'])->assignRole($admin);
         Permission::create(['name' => 'roles.delete'])->assignRole($admin);
+
+        // Permisos para la administración de los tickets PQRS
+        Permission::create(['name' => 'tickets.list'])->assignRole($admin,$agente,$asistente,$contratista);
+        Permission::create(['name' => 'tickets.create'])->assignRole($admin,$agente,$asistente);
+        Permission::create(['name' => 'tickets.show'])->assignRole($admin,$agente,$asistente,$contratista);
+        Permission::create(['name' => 'tickets.delete'])->assignRole($admin);
+        Permission::create(['name' => 'contractor.admin'])->assignRole($contratista);
     }
 }
